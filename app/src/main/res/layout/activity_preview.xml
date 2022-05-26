@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.PreviewActivity">
+
+
+   <!-- <com.theartofdev.edmodo.cropper.CropImageView
+        android:id="@+id/image_croper"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/back"
+        app:layout_constraintBottom_toTopOf="@id/crop_photo"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        app:cropAspectRatioX="1"
+        app:cropFixAspectRatio="true"
+        app:cropShape="oval"/>-->
+
+    <ProgressBar
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:padding="180dp"
+        android:clickable="true"
+        android:focusable="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:id="@+id/progressBar"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/crop_photo"
+        android:layout_width="0dp"
+        android:layout_height="58dp"
+        android:layout_marginTop="44dp"
+        android:layout_marginBottom="32dp"
+        android:background="@drawable/roundedcorner_btn"
+        android:gravity="center"
+        android:paddingVertical="17dp"
+        android:paddingStart="30dp"
+        android:paddingEnd="8dp"
+        android:layout_marginHorizontal="50dp"
+        android:text="Save"
+        android:textSize="18sp"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:drawableEnd="@drawable/roundedcorner_backicon"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
