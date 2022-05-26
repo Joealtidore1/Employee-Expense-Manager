@@ -1,3 +1,31 @@
 <resources>
     <string name="app_name">Employee Expense Manager</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+    <string-array name="expenses">
+        <item>Select Here</item>
+        <item>Restaurants</item>
+        <item>Shuttle</item>
+        <item>Airline</item>
+        <item>Ride sharing</item>
+        <item>BreakFast</item>
+        <item>Parking</item>
+        <item>Fast Food</item>
+        <item>Office supplies</item>
+        <item>Tax</item>
+        <item>Hotel</item>
+        <item>Rental car</item>
+        <item>Electronic</item>
+        <item>Food</item>
+        <item>Drink</item>
+        <item>Entertainment</item>
+        <item>Snacks</item>
+        <item>Coffee</item>
+        <item>Ice</item>
+        <item>Showers</item>
+        <item>Water</item>
+
+    </string-array>
 </resources>
