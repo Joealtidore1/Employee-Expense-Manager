@@ -36,6 +36,8 @@ class ProfileRepositoryImpl @Inject constructor(
         dao.addEmployee(employee.toEmployeeEntity())
     }
 
+    override suspend fun getEmployeeDetails() = dao.getEmployee().toEmployee()
+
     override suspend fun initialize() {
         if(verifyEmployee("demo") == null) {
             dao.addEmployee(EmployeeEntity())

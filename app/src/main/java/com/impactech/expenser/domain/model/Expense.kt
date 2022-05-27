@@ -10,7 +10,7 @@ data class Expense(
     var date: String = "",
     var total: Double = 0.0,
     var merchant : String = "",
-    var status: String = "",
+    var status: String = "New",
     var comment: String = "",
     var receiptPath: String = ""
 

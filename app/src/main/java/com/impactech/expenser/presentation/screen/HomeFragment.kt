@@ -1,24 +1,29 @@
 package com.impactech.expenser.presentation.screen
 
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isGone
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.impactech.expenser.HomeActivity
 import com.impactech.expenser.R
 import com.impactech.expenser.databinding.ExpenseFragmentBinding
-import com.impactech.expenser.databinding.FragmentHomeBinding
 import com.impactech.expenser.domain.model.Expense
 import com.impactech.expenser.presentation.screen.adapter.ExpenseAdapter
 import com.impactech.expenser.presentation.view_models.ExpenserViewModel
+import com.impactech.expenser.utility.hide
+import com.impactech.expenser.utility.isVisible
+import com.impactech.expenser.utility.show
 import java.text.NumberFormat
 
 
 class HomeFragment : Fragment() {
-    private lateinit var binding: FragmentHomeBinding
+    private lateinit var binding: ExpenseFragmentBinding
     private val viewModel: ExpenserViewModel by activityViewModels()
     var data = mutableListOf<Expense>()
 
@@ -26,7 +31,7 @@ class HomeFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentHomeBinding.inflate(inflater, container, false)
+        binding = ExpenseFragmentBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -35,22 +40,9 @@ class HomeFragment : Fragment() {
         init()
     }
 
-    override fun onDestroyView() {
-        if(view != null) {
-            val viewGroup = view!!.parent as ViewGroup?
-            viewGroup?.removeAllViews()
-        }
-        binding.root.parent.let {
-            (it as ViewGroup).removeView(binding.root)
-        }
-        super.onDestroyView()
-    }
-
-
-
     private fun init() {
         val adapter = ExpenseAdapter(data){
-            val action = HomeFragmentDirections.actionHomeFragment2ToAddExpenseFragment2()
+            val action = HomeFragmentDirections.actionHomeFragmentToAddExpenseFragment(it)
             findNavController().navigate(action)
         }
 
@@ -70,8 +62,31 @@ class HomeFragment : Fragment() {
             }
         }
 
-        (requireActivity() as HomeActivity).add?.setOnClickListener {
-            val action = HomeFragmentDirections.actionHomeFragment2ToAddExpenseFragment2()
+
+
+        binding.add.setOnClickListener {
+            binding.options.show()
+            binding.add.hide()
+        }
+
+        binding.root.setOnClickListener {
+            if(binding.options.isVisible()){
+                binding.options.hide()
+                binding.add.show()
+            }
+        }
+
+        binding.recyclerView.setOnTouchListener { _, _ ->
+            binding.root.performClick()
+        }
+
+        binding.expense.setOnClickListener {
+            val action = HomeFragmentDirections.actionHomeFragmentToAddExpenseFragment()
+            findNavController().navigate(action)
+        }
+
+        binding.employee.setOnClickListener {
+            val action = HomeFragmentDirections.actionHomeFragmentToCreateEmployeeFragment()
             findNavController().navigate(action)
         }
     }

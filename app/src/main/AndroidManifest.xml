@@ -3,6 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.impactech.expenser">
 
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+
     <application
         android:name=".ExpenseApplication"
         android:allowBackup="true"
@@ -14,9 +17,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.EmployeeExpenseManager"
         tools:targetApi="31">
-        <activity
-            android:name=".HomeActivity2"
-            android:exported="false" />
         <activity
             android:name=".HomeActivity"
             android:exported="false" />
@@ -39,6 +39,7 @@
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
+
     </application>
 
 </manifest>

@@ -26,9 +26,13 @@
     <string name="login_error_message">No employee with these credentials was found</string>
     <string name="Total">total</string>
     <string name="comment">Comment</string>
-    <string name="comments">Comments...</string>
     <string name="select_receipt">Select Receipt</string>
     <string name="save">save</string>
+    <string name="crop_image">Crop</string>
+    <string name="comment_hint">Comment…</string>
+    <string name="add_expense">Add expense</string>
+    <string name="add_employee">Create employee</string>
+    <string name="home">Home</string>
 
 
     <string-array name="expenses">

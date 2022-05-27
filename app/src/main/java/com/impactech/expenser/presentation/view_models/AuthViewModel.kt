@@ -34,6 +34,9 @@ class AuthViewModel @Inject constructor(
     fun onEvent(event: AuthEvent){
         viewModelScope.launch(Dispatchers.IO) {
             when(event){
+                is AuthEvent.GetUserInfo ->{
+                    employee.postValue(repository.getEmployeeDetails())
+                }
                 is AuthEvent.Login -> {
 
                     val res = repository.getEmployee(event.username, event.password)
