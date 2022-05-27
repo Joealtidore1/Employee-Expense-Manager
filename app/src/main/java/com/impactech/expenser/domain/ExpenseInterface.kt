@@ -6,6 +6,8 @@ import com.impactech.expenser.domain.model.Merchant
 
 interface ExpenseInterface {
 
+        suspend fun getReimbursementAmount(): Double?
+
         suspend fun getAllMerchant(): List<String>
 
         suspend fun addMerchants(merchant: List<Merchant>)

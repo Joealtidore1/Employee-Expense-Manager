@@ -1,4 +1,4 @@
-package com.impactech.expenser.data.local
+package com.impactech.expenser.data.local.entity
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
@@ -14,6 +14,7 @@ data class ExpenseEntity(
     var merchant: String = "",
     var comment: String = "",
     @ColumnInfo(name = "receipt_path")
-    var receiptPath: String = ""
+    var receiptPath: String = "",
+    var userId: Int = 0
 
 )

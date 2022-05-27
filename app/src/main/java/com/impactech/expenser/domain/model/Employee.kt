@@ -11,5 +11,11 @@ data class Employee(
     var location: String = "",
     var department: String = "",
     var jobDescription: String = "",
-
+    val username: String,
+    val password: String? = null
 )
+
+object Constant {
+    var userId = 0
+    var user: Employee? = null
+}

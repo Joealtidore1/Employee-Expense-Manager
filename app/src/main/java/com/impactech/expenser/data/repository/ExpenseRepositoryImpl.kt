@@ -1,10 +1,8 @@
 package com.impactech.expenser.data.repository
 
 import com.impactech.expenser.data.local.ExpenseDatabase
-import com.impactech.expenser.data.local.ExpenseEntity
 import com.impactech.expenser.data.mapper.toExpense
 import com.impactech.expenser.data.mapper.toExpenseEntity
-import com.impactech.expenser.data.mapper.toMerchant
 import com.impactech.expenser.data.mapper.toMerchantEntity
 import com.impactech.expenser.domain.ExpenseInterface
 import com.impactech.expenser.domain.model.Expense
@@ -17,6 +15,8 @@ class ExpenseRepositoryImpl @Inject constructor(
     db: ExpenseDatabase
 ): ExpenseInterface {
     private val dao = db.expenseDao
+    override suspend fun getReimbursementAmount(): Double? = dao.getTotalByStatus()
+
     override suspend fun getAllMerchant() = dao.getMerchants()
 
     override suspend fun addMerchants(merchant: List<Merchant>) {

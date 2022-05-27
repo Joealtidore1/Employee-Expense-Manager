@@ -8,6 +8,7 @@
     <string name="password">Password</string>
     <string name="login">Login</string>
     <string name="profile_picture">profile picture</string>
+    <string name="validation_error">Validation Error</string>
     <string name="to_be_reimbursed">To be reimbursed</string>
     <string name="from">From</string>
     <string name="hyphen">-</string>
@@ -18,8 +19,11 @@
     <string name="new_cb">New</string>
     <string name="progress">In Progress</string>
     <string name="reimburse">Reimburse</string>
+    <string name="validation_error_message">%1$s is not allowed to be empty! \nPlease provide an
+        input then continue</string>
     <string name="clear_filters">Clear Filters</string>
     <string name="done">Done</string>
+    <string name="login_error_message">No employee with these credentials was found</string>
 
 
     <string-array name="expenses">

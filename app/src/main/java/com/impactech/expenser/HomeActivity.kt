@@ -1,21 +1,26 @@
 package com.impactech.expenser
 
 import android.app.DatePickerDialog
+import android.content.Context
+import android.graphics.Rect
 import android.os.Bundle
+import android.view.MotionEvent
+import android.view.View
+import android.view.inputmethod.InputMethodManager
 import android.widget.ArrayAdapter
 import android.widget.DatePicker
 import android.widget.EditText
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.AppCompatImageView
 import androidx.core.content.ContextCompat
 import androidx.core.widget.addTextChangedListener
+import androidx.navigation.NavController
+import androidx.navigation.fragment.NavHostFragment
 import com.impactech.expenser.databinding.ActivityHomeBinding
 import com.impactech.expenser.presentation.states_and_events.ExpenseEvents
 import com.impactech.expenser.presentation.view_models.ExpenserViewModel
-import com.impactech.expenser.utility.extractText
-import com.impactech.expenser.utility.hide
-import com.impactech.expenser.utility.isVisible
-import com.impactech.expenser.utility.show
+import com.impactech.expenser.utility.*
 import dagger.hilt.android.AndroidEntryPoint
 import java.text.SimpleDateFormat
 import java.util.*
@@ -24,19 +29,64 @@ import java.util.*
 class HomeActivity : AppCompatActivity() {
     private lateinit var binding: ActivityHomeBinding
     private val viewModel: ExpenserViewModel by viewModels()
+    private lateinit var navController: NavController
+
+    var add: AppCompatImageView? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        val host = supportFragmentManager.findFragmentById(binding.container.id) as NavHostFragment
+        navController = host.navController
+        /*val config = AppBarConfiguration.Builder()
+            .setFallbackOnNavigateUpListener { navigateUpOrFinish() }
+            .build()
+
+        binding.toolbar.apply {
+            setupWithNavController(navController, config)
+        }*/
+
+        add = binding.add
+        navController.setGraph(R.navigation.nav)
 
         init()
     }
 
+    override fun onSupportNavigateUp(): Boolean {
+        return navigateUpOrFinish()
+    }
+
+    private fun navigateUpOrFinish(): Boolean {
+        return if (navController.navigateUp()) {
+            true
+        } else {
+            finish()
+            true
+        }
+    }
+
     private fun init(){
+
+        navController.addOnDestinationChangedListener{ _, dest, _ ->
+            when(dest.id){
+                R.id.homeFragment -> {
+                    binding.add.show()
+                    binding.filter.show()
+                    binding.profileImage.show()
+                }
+                R.id.addExpenseFragment -> {
+                    binding.add.hide()
+                    binding.profileImage.hide()
+                    binding.filter.hide()
+                }
+            }
+        }
         binding.filter.setOnClickListener {
             if(binding.filterContainer.isVisible()){
-                binding.filterContainer.show()
-            }else{
                 binding.filterContainer.hide()
+            }else{
+                binding.filterContainer.show()
             }
         }
 
@@ -79,7 +129,7 @@ class HomeActivity : AppCompatActivity() {
         var isSelected = false
         viewModel.merchants.observe(this){
             if(it.isNotEmpty()){
-                val adapter = ArrayAdapter(this, android.R.layout.simple_dropdown_item_1line, it)
+                val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, it)
                 binding.merchant.setAdapter(adapter)
 
 
@@ -87,8 +137,10 @@ class HomeActivity : AppCompatActivity() {
         }
 
         binding.merchant.setOnFocusChangeListener {_, b ->
-            isSelected = false
-            binding.merchant.showDropDown()
+            if(b) {
+                isSelected = false
+                binding.merchant.showDropDown()
+            }
         }
 
         binding.merchant.setOnItemClickListener { adapterView, _, i, _ ->
@@ -173,6 +225,23 @@ class HomeActivity : AppCompatActivity() {
             .setTextColor(ContextCompat.getColor(this@HomeActivity, R.color.primary_dark))
         datePickerDialog.getButton(DatePickerDialog.BUTTON_NEGATIVE)
             .setTextColor(ContextCompat.getColor(this@HomeActivity, R.color.primary_dark))
+    }
+
+    override fun dispatchTouchEvent(event: MotionEvent): Boolean {
+        if (event.action == MotionEvent.ACTION_DOWN) {
+            val v: View? = currentFocus
+            if (v is EditText) {
+                val outRect = Rect()
+                v.getGlobalVisibleRect(outRect)
+                if (!outRect.contains(event.rawX.toInt(), event.rawY.toInt())) {
+                    v.clearFocus()
+                    val imm: InputMethodManager =
+                        getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+                    imm.hideSoftInputFromWindow(v.getWindowToken(), 0)
+                }
+            }
+        }
+        return super.dispatchTouchEvent(event)
     }
 
 

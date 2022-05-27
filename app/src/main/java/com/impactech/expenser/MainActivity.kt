@@ -8,6 +8,9 @@ import android.os.Looper
 import android.view.animation.AnimationUtils
 import com.impactech.expenser.R
 import com.impactech.expenser.databinding.ActivityMainBinding
+import com.impactech.expenser.domain.model.Constant.userId
+import com.impactech.expenser.utility.getPreferenceB
+import com.impactech.expenser.utility.getPreferenceI
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -23,7 +26,12 @@ class MainActivity : AppCompatActivity() {
         binding.title.startAnimation(anim)
 
         Handler(Looper.getMainLooper()).postDelayed({
-            startActivity(Intent(applicationContext, Authentication::class.java))
+            if(getPreferenceB("loggedIn")){
+                userId = getPreferenceI("userId")
+                startActivity(Intent(applicationContext, HomeActivity::class.java))
+            }else {
+                startActivity(Intent(applicationContext, Authentication::class.java))
+            }
             finish()
         }, 1000)
     }

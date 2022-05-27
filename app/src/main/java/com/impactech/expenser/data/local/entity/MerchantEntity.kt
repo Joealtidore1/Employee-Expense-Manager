@@ -1,4 +1,4 @@
-package com.impactech.expenser.data.local
+package com.impactech.expenser.data.local.entity
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

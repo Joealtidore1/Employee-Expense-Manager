@@ -3,6 +3,7 @@ package com.impactech.expenser.domain.model
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import java.io.Serializable
 
 data class Expense(
     val id:Int = 0,
@@ -13,4 +14,4 @@ data class Expense(
     var comment: String = "",
     var receiptPath: String = ""
 
-)
+): Serializable

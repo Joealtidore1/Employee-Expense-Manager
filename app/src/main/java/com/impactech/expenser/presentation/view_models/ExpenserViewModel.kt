@@ -12,7 +12,6 @@ import com.impactech.expenser.presentation.states_and_events.ExpenseEvents
 import com.impactech.expenser.presentation.states_and_events.ExpenseStates
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
-import java.util.Locale.filter
 import javax.inject.Inject
 
 @HiltViewModel
@@ -23,11 +22,13 @@ class ExpenserViewModel @Inject constructor(
     val expenses = MutableLiveData<List<Expense>>()
     val merchants = MutableLiveData<List<String>>()
     val tempExpense = mutableListOf<Expense>()
+    val amount = MutableLiveData<Double?>(null)
 
     init {
         viewModelScope.launch {
             merchants.postValue(repository.getAllMerchant())
             filter()
+            amount.postValue(repository.getReimbursementAmount()?:0.0)
         }
     }
 
