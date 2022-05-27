@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/gray"
+    android:background="#ededed"
     tools:context=".presentation.screen.AddExpenseFragment">
 
     <androidx.appcompat.widget.Toolbar
@@ -87,27 +87,33 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:text="Merchant"
-                android:textSize="20sp"
-                android:textStyle="bold"
                 tools:ignore="HardcodedText"
-                app:layout_constraintEnd_toEndOf="parent"
+                android:textAppearance="@style/custom_text"
+                android:textColor="@color/primary_dark"
+                android:textSize="16sp"
+                android:fontFamily="@font/poppins_medium"
                 app:layout_constraintHorizontal_bias="0.127"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintStart_toStartOf="@id/expenseType"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <Spinner
+
+
+            <AutoCompleteTextView
                 android:id="@+id/expenseType"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="14dp"
-                android:layout_marginVertical="4dp"
-                android:background="@drawable/roundedcorner"
-                android:entries="@array/expenses"
-                android:padding="16dp"
-                android:spinnerMode="dialog"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView2" />
+                app:layout_constraintTop_toBottomOf="@+id/textView2"
+                android:background="@color/text_hint_color"
+                android:padding="10dp"
+                android:drawableEnd="@drawable/ic_baseline_keyboard_arrow_down"
+                android:hint="@array/expenses"
+                android:fontFamily="@font/poppins_medium"
+                android:layout_marginHorizontal="14dp"
+                android:layout_marginVertical="4dp"
+                android:textAppearance="@style/custom_text"
+                />
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -123,12 +129,13 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:text="Total"
-                android:textSize="20sp"
-                android:textStyle="bold"
                 tools:ignore="HardcodedText"
-                app:layout_constraintEnd_toEndOf="parent"
+                android:textAppearance="@style/custom_text"
+                android:textColor="@color/primary_dark"
+                android:textSize="16sp"
+                android:fontFamily="@font/poppins_medium"
                 app:layout_constraintHorizontal_bias="0.127"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintStart_toStartOf="@id/textView2"
                 app:layout_constraintTop_toBottomOf="@+id/expenseType" />
 
             <EditText
@@ -137,12 +144,14 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="14dp"
                 android:layout_marginVertical="4dp"
-                android:background="@drawable/roundedcorner"
+                android:background="@color/text_hint_color"
                 android:ems="10"
-                android:hint="Enter Amount"
+                android:drawableStart="@drawable/ic_dollar"
                 android:inputType="numberDecimal"
-                android:padding="16dp"
+                android:padding="10dp"
+                android:drawableTint="@color/grey"
                 tools:ignore="HardcodedText"
+                android:fontFamily="@font/poppins_medium"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView8" />
@@ -153,12 +162,13 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:text="Date"
-                android:textSize="20sp"
-                android:textStyle="bold"
                 tools:ignore="HardcodedText"
-                app:layout_constraintEnd_toEndOf="parent"
+                android:textAppearance="@style/custom_text"
+                android:textColor="@color/primary_dark"
+                android:textSize="16sp"
+                android:fontFamily="@font/poppins_medium"
                 app:layout_constraintHorizontal_bias="0.127"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintStart_toStartOf="@id/textView8"
                 app:layout_constraintTop_toBottomOf="@+id/amount" />
 
             <TextView
@@ -167,28 +177,31 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="14dp"
                 android:layout_marginVertical="4dp"
-                android:background="@drawable/roundedcorner"
+                android:background="@color/text_hint_color"
                 android:drawablePadding="10sp"
-                android:hint="Enter Date"
                 android:onClick="showDatePickerDialog"
-                android:padding="16dp"
+                android:padding="10dp"
                 tools:ignore="HardcodedText"
+                android:fontFamily="@font/poppins_medium"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView9" />
+                app:layout_constraintTop_toBottomOf="@+id/textView9"
+                app:drawableTint="@color/grey"
+                app:drawableEndCompat="@drawable/ic_calendar" />
 
             <TextView
                 android:id="@+id/textView12"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text="Add Comments"
-                android:textSize="20sp"
-                android:textStyle="bold"
+                android:text="Comment"
                 tools:ignore="HardcodedText"
-                app:layout_constraintEnd_toEndOf="parent"
+                android:textAppearance="@style/custom_text"
+                android:textColor="@color/primary_dark"
+                android:textSize="16sp"
+                android:fontFamily="@font/poppins_medium"
                 app:layout_constraintHorizontal_bias="0.127"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintStart_toStartOf="@id/textView9"
                 app:layout_constraintTop_toBottomOf="@+id/expenseDate" />
 
             <EditText
@@ -197,13 +210,14 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="14dp"
                 android:layout_marginVertical="4dp"
-                android:background="@drawable/roundedcorner"
+                android:background="@color/text_hint_color"
                 android:ems="10"
                 android:gravity="start|top"
                 android:hint="Comments..."
                 android:inputType="textMultiLine"
                 android:padding="16dp"
                 tools:ignore="HardcodedText"
+                android:fontFamily="@font/poppins_medium"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView12" />
@@ -218,6 +232,7 @@
                 android:layout_marginTop="12dp"
                 android:background="@drawable/edt_bg"
                 android:gravity="center"
+                android:backgroundTint="@color/gray"
                 android:includeFontPadding="false"
                 android:paddingStart="13dp"
                 android:paddingEnd="10dp"
@@ -240,7 +255,6 @@
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-
     </ScrollView>
 
     <androidx.appcompat.widget.AppCompatButton

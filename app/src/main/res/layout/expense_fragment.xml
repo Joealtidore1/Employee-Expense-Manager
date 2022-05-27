@@ -1,40 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     tools:context=".presentation.screen.HomeFragment">
 
     <TextView
         android:id="@+id/reimburse_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="@style/custom_text"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
         android:text="@string/to_be_reimbursed"
-        android:textColor="@color/grey"/>
+        android:textAppearance="@style/custom_text"
+        android:textColor="@color/grey"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
         android:id="@+id/reimburse"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="@style/custom_text"
+        android:textColor="@color/grey"
         android:textSize="16sp"
-        tools:text="$ 1,020.00"
         app:layout_constraintStart_toStartOf="@id/reimburse_title"
         app:layout_constraintTop_toBottomOf="@id/reimburse_title"
-        android:textColor="@color/grey"/>
+        tools:text="$ 1,020.00" />
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/reimburse"
         android:layout_marginTop="20dp"
         tools:listitem="@layout/item_expense_cell"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        android:id="@+id/recycler_view"/>
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/reimburse" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
