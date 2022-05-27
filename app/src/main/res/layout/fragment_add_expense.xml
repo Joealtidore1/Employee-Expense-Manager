@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/gray"
-    tools:context=".activities.fragment.AddExpenseFragment">
+    tools:context=".presentation.screen.AddExpenseFragment">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/relativeLayout5"
@@ -216,7 +216,7 @@
                 android:layout_alignParentStart="true"
                 android:layout_centerVertical="true"
                 android:layout_marginTop="12dp"
-                android:background="@drawable/roundedcorner_white"
+                android:background="@drawable/edt_bg"
                 android:gravity="center"
                 android:includeFontPadding="false"
                 android:paddingStart="13dp"

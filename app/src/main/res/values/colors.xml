@@ -13,4 +13,6 @@
     <color name="primary_dark">#FF0081bd</color>
     <color name="primary_light">#FF66e2ff</color>
     <color name="gray">#DDDCDC</color>
+    <color name="text_hint_color">#dcdcdc</color>
+    <color name="grey">#444</color>
 </resources>
