@@ -9,5 +9,7 @@ interface ProfileRepository {
 
     suspend fun addEmployee(employee: Employee)
 
+    suspend fun getEmployeeDetails(): Employee
+
     suspend fun initialize()
 }

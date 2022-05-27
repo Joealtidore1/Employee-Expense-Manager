@@ -16,30 +16,16 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/profile_image"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/ic_person"
+            android:contentDescription="@string/profile_picture"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/cardView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:cardCornerRadius="50dp"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-
-            <ImageView
-                android:id="@+id/profile_image"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:background="@drawable/rounded_image"
-                android:scaleType="fitXY"
-                android:src="@drawable/football"
-                android:contentDescription="@string/profile_picture"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-        </com.google.android.material.card.MaterialCardView>
 
 
         <TextView
@@ -48,27 +34,25 @@
             android:layout_height="wrap_content"
             android:layout_marginVertical="5dp"
             android:gravity="center"
-            android:text="gameplayerfredrick"
+            tools:text="Fredrick Fredoski"
             android:textColor="@color/white"
             android:textSize="25sp"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cardView"
-            tools:ignore="HardcodedText" />
+            app:layout_constraintTop_toBottomOf="@id/profile_image" />
 
         <TextView
             android:id="@+id/departmentLayout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="fredrick developer"
+            tools:text="fredrick developer"
             android:textColor="@color/white"
             android:textSize="14sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/profile_name"
-            tools:ignore="HardcodedText" />
+            app:layout_constraintTop_toBottomOf="@id/profile_name" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -82,10 +66,10 @@
         android:layout_marginHorizontal="60dp"
         android:layout_marginBottom="40dp"
         android:background="@drawable/roundedbutton"
+        android:backgroundTint="@color/primary"
         android:drawableStart="@drawable/icon_back"
         android:gravity="center"
         android:includeFontPadding="false"
-        android:onClick="home"
         android:paddingStart="10dp"
         android:paddingEnd="10dp"
         android:text="Back to Home"
@@ -113,26 +97,6 @@
         app:layout_constraintTop_toBottomOf="@id/constraintLayout"
         tools:ignore="HardcodedText" />
 
-    <!-- <com.google.android.material.card.MaterialCardView
-         android:id="@+id/userIcon"
-         android:layout_width="50dp"
-         android:layout_height="50dp"
-         android:layout_marginVertical="30dp"
-         app:layout_constraintLeft_toLeftOf="@id/account"
-         app:layout_constraintTop_toBottomOf="@id/account"
-         app:cardCornerRadius="50dp"
-         >
-
-         <ImageView
-             android:id="@+id/userIcon"
-             android:layout_width="50dp"
-             android:layout_height="50dp"
-             android:scaleType="fitXY"
-             android:src="@drawable/football"
-             app:layout_constraintLeft_toLeftOf="@id/account"
-             app:layout_constraintTop_toBottomOf="@id/account" />
-
-     </com.google.android.material.card.MaterialCardView>-->
 
     <ImageView
         android:id="@+id/userIcon"
@@ -355,5 +319,6 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/descriptionName" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

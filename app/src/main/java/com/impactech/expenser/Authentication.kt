@@ -43,7 +43,6 @@ class Authentication : AppCompatActivity() {
             viewModel.onEvent(AuthEvent.Login(binding.username.extractText(), binding.password.extractText()))
 
             viewModel.isSuccess.observe(this){
-                toast(it.toString())
                 if(it){
                     savePreference("loggedIn", true)
                     savePreference("userId", userId)

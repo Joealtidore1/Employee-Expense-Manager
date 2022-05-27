@@ -191,26 +191,18 @@
                     app:layout_constraintTop_toBottomOf="@+id/descriptionN" />
 
 
-                <com.google.android.material.card.MaterialCardView
-                    android:id="@+id/choseImage"
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/imageView"
                     android:layout_width="80dp"
                     android:layout_height="80dp"
-                    android:layout_marginTop="22dp"
-                    app:cardCornerRadius="50dp"
+                    android:background="@drawable/contact_icon_bg"
+                    android:scaleType="centerCrop"
+                    android:layout_marginTop="20dp"
+                    android:src="@drawable/ic_baseline_picture_in_picture"
                     app:layout_constraintStart_toStartOf="@+id/textView51"
-                    app:layout_constraintTop_toBottomOf="@+id/textView51">
-
-                    <ImageView
-                        android:id="@+id/imageView"
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
-                        android:background="@drawable/contact_icon_bg"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/ic_baseline_picture_in_picture"
-                        app:layout_constraintStart_toStartOf="@+id/textView51"
-                        app:layout_constraintTop_toBottomOf="@+id/textView51"
-                        app:tint="#777" />
-                </com.google.android.material.card.MaterialCardView>
+                    app:layout_constraintTop_toBottomOf="@+id/textView51"
+                    app:tint="#777" />
 
 
                 <TextView
@@ -222,8 +214,8 @@
                     android:includeFontPadding="false"
                     android:textSize="14sp"
                     android:visibility="gone"
-                    app:layout_constraintStart_toStartOf="@+id/choseImage"
-                    app:layout_constraintTop_toBottomOf="@+id/choseImage" />
+                    app:layout_constraintStart_toStartOf="@+id/imageView"
+                    app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
 
                 <androidx.appcompat.widget.AppCompatButton
@@ -236,12 +228,12 @@
                     android:layout_marginTop="45dp"
                     android:layout_marginEnd="28dp"
                     android:layout_marginBottom="32dp"
-                    android:drawableEnd="@drawable/roundedcorner_backicon"
                     android:background="@drawable/roundedcorner_btn"
+                    android:drawableEnd="@drawable/roundedcorner_backicon"
                     android:gravity="center"
-                    android:paddingEnd="8dp"
-                    android:paddingStart="1dp"
                     android:includeFontPadding="false"
+                    android:paddingStart="1dp"
+                    android:paddingEnd="8dp"
                     android:text="Create Employee"
                     android:textAllCaps="false"
                     android:textColor="@color/white"
@@ -249,7 +241,7 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/choseImage" />
+                    app:layout_constraintTop_toBottomOf="@+id/imageView" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.coordinatorlayout.widget.CoordinatorLayout>
     </androidx.core.widget.NestedScrollView>
