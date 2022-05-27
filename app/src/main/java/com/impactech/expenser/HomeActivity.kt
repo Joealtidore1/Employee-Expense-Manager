@@ -7,20 +7,16 @@ import android.os.Bundle
 import android.view.MotionEvent
 import android.view.View
 import android.view.inputmethod.InputMethodManager
-import android.widget.ArrayAdapter
 import android.widget.DatePicker
 import android.widget.EditText
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.core.content.ContextCompat
-import androidx.core.widget.addTextChangedListener
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import com.impactech.expenser.databinding.ActivityHomeBinding
-import com.impactech.expenser.presentation.states_and_events.ExpenseEvents
 import com.impactech.expenser.presentation.view_models.ExpenserViewModel
-import com.impactech.expenser.utility.*
 import dagger.hilt.android.AndroidEntryPoint
 import java.text.SimpleDateFormat
 import java.util.*
@@ -39,34 +35,14 @@ class HomeActivity : AppCompatActivity() {
         setContentView(binding.root)
         val host = supportFragmentManager.findFragmentById(binding.container.id) as NavHostFragment
         navController = host.navController
-        /*val config = AppBarConfiguration.Builder()
-            .setFallbackOnNavigateUpListener { navigateUpOrFinish() }
-            .build()
-
-        binding.toolbar.apply {
-            setupWithNavController(navController, config)
-        }*/
 
         add = binding.add
-        navController.setGraph(R.navigation.nav)
-
-        init()
+        //init()
     }
 
-    override fun onSupportNavigateUp(): Boolean {
-        return navigateUpOrFinish()
-    }
 
-    private fun navigateUpOrFinish(): Boolean {
-        return if (navController.navigateUp()) {
-            true
-        } else {
-            finish()
-            true
-        }
-    }
 
-    private fun init(){
+    /*private fun init(){
 
         navController.addOnDestinationChangedListener{ _, dest, _ ->
             when(dest.id){
@@ -194,7 +170,8 @@ class HomeActivity : AppCompatActivity() {
         }
 
         binding.done.setOnClickListener { binding.filter.performClick() }
-    }
+        add = binding.add
+    }*/
 
     private fun setDate(view: EditText){
         val myCalendar = Calendar.getInstance()

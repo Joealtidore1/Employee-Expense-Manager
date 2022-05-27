@@ -7,74 +7,20 @@
     android:background="#ededed"
     tools:context=".presentation.screen.AddExpenseFragment">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/relativeLayout5"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingVertical="8dp"
-        android:visibility="gone"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-
-        <ImageView
-            android:id="@+id/backImv"
-            android:layout_width="60dp"
-            android:layout_height="50dp"
-            android:layout_marginStart="6dp"
-            android:layout_marginTop="4dp"
-            android:layout_marginEnd="15dp"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:clickable="true"
-            android:focusable="true"
-            android:onClick="back"
-            android:padding="10dp"
-            tools:ignore="HardcodedText"
-            android:src="@drawable/ic_baseline_arrow_back" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="Add Expenses"
-            android:textAlignment="center"
-            android:textSize="30sp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="HardcodedText" />
-    </androidx.appcompat.widget.Toolbar>
-
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Add Expenses"
-        android:textAlignment="center"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        tools:ignore="HardcodedText"
-        app:layout_constraintBottom_toTopOf="@id/scrollView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <ScrollView
         android:id="@+id/scrollView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/scrollView">
+        app:layout_constraintTop_toTopOf="parent">
 
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:paddingBottom="30dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -85,9 +31,8 @@
                 android:id="@+id/textView2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="Merchant"
-                tools:ignore="HardcodedText"
+                android:layout_marginTop="18dp"
+                android:text="@string/merchant"
                 android:textAppearance="@style/custom_text"
                 android:textColor="@color/primary_dark"
                 android:textSize="16sp"
@@ -97,39 +42,31 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
 
-
             <AutoCompleteTextView
                 android:id="@+id/expenseType"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView2"
-                android:background="@color/text_hint_color"
-                android:padding="10dp"
-                android:drawableEnd="@drawable/ic_baseline_keyboard_arrow_down"
-                android:hint="@array/expenses"
-                android:fontFamily="@font/poppins_medium"
                 android:layout_marginHorizontal="14dp"
                 android:layout_marginVertical="4dp"
+                android:background="@color/text_hint_color"
+                android:drawableEnd="@drawable/ic_baseline_keyboard_arrow_down"
+                android:focusable="false"
+                android:fontFamily="@font/poppins_medium"
+                android:hint="@array/expenses"
+                android:minHeight="48dp"
+                android:padding="10dp"
                 android:textAppearance="@style/custom_text"
-                />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintBottom_toBottomOf="@id/expenseType"
-                app:layout_constraintHorizontal_bias="1.102"
-                app:layout_constraintStart_toEndOf="@id/expenseType"
-                app:layout_constraintTop_toTopOf="@+id/expenseType" />
 
             <TextView
                 android:id="@+id/textView8"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="Total"
-                tools:ignore="HardcodedText"
+                android:layout_marginTop="30dp"
+                android:text="@string/Total"
                 android:textAppearance="@style/custom_text"
                 android:textColor="@color/primary_dark"
                 android:textSize="16sp"
@@ -137,6 +74,7 @@
                 app:layout_constraintHorizontal_bias="0.127"
                 app:layout_constraintStart_toStartOf="@id/textView2"
                 app:layout_constraintTop_toBottomOf="@+id/expenseType" />
+            
 
             <EditText
                 android:id="@+id/amount"
@@ -148,9 +86,12 @@
                 android:ems="10"
                 android:drawableStart="@drawable/ic_dollar"
                 android:inputType="numberDecimal"
-                android:padding="10dp"
+                android:drawablePadding="20dp"
+                android:paddingVertical="12dp"
+                android:paddingHorizontal="10dp"
+                android:textAppearance="@style/custom_text"
+                android:autofillHints="amount"
                 android:drawableTint="@color/grey"
-                tools:ignore="HardcodedText"
                 android:fontFamily="@font/poppins_medium"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -160,9 +101,8 @@
                 android:id="@+id/textView9"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="Date"
-                tools:ignore="HardcodedText"
+                android:layout_marginTop="30dp"
+                android:text="@string/date"
                 android:textAppearance="@style/custom_text"
                 android:textColor="@color/primary_dark"
                 android:textSize="16sp"
@@ -178,9 +118,10 @@
                 android:layout_marginHorizontal="14dp"
                 android:layout_marginVertical="4dp"
                 android:background="@color/text_hint_color"
-                android:drawablePadding="10sp"
-                android:onClick="showDatePickerDialog"
+                android:drawablePadding="10dp"
                 android:padding="10dp"
+                android:focusable="false"
+                android:textAppearance="@style/custom_text"
                 tools:ignore="HardcodedText"
                 android:fontFamily="@font/poppins_medium"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -194,8 +135,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text="Comment"
-                tools:ignore="HardcodedText"
+                android:text="@string/comment"
                 android:textAppearance="@style/custom_text"
                 android:textColor="@color/primary_dark"
                 android:textSize="16sp"
@@ -213,69 +153,74 @@
                 android:background="@color/text_hint_color"
                 android:ems="10"
                 android:gravity="start|top"
-                android:hint="Comments..."
+                android:hint="@string/comments"
                 android:inputType="textMultiLine"
                 android:padding="16dp"
-                tools:ignore="HardcodedText"
                 android:fontFamily="@font/poppins_medium"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView12" />
+                app:layout_constraintTop_toBottomOf="@+id/textView12"
+                android:autofillHints="" />
 
 
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/receipt"
+            <TextView
+                android:id="@+id/select_receipt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:layout_centerVertical="true"
-                android:layout_marginTop="12dp"
-                android:background="@drawable/edt_bg"
+                android:layout_marginTop="30dp"
                 android:gravity="center"
-                android:backgroundTint="@color/gray"
                 android:includeFontPadding="false"
-                android:paddingStart="13dp"
-                android:paddingEnd="10dp"
-                android:text="Select Receipt"
+                android:fontFamily="@font/roboto_bold"
+                android:text="@string/select_receipt"
                 android:textAllCaps="false"
-                tools:ignore="HardcodedText"
-                android:textColor="@color/primary"
+                android:textAppearance="@style/custom_text"
+                android:textSize="18sp"
+                android:background="@color/primary_dark"
+                android:padding="20dp"
+                android:textColor="@color/white"
                 app:layout_constraintStart_toStartOf="@id/comments"
                 app:layout_constraintTop_toBottomOf="@+id/comments"
                 app:layout_constraintVertical_bias="0.0" />
 
             <ImageView
-                android:layout_width="200dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:id="@+id/receipt"
+                android:layout_width="250dp"
+                android:layout_height="400dp"
+                android:layout_marginTop="20dp"
+                android:contentDescription="@string/select_receipt"
                 android:scaleType="centerCrop"
                 android:src="@drawable/football"
-                app:layout_constraintStart_toStartOf="@id/receipt"
+                app:layout_constraintVertical_chainStyle="spread"
+                app:layout_constraintBottom_toTopOf="@id/saveExpense"
+                app:layout_constraintStart_toStartOf="@id/select_receipt"
+                app:layout_constraintTop_toBottomOf="@id/select_receipt" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/saveExpense"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_marginVertical="15dp"
+                android:layout_marginTop="40dp"
+                android:background="@drawable/roundedcorner_btn"
+                android:backgroundTint="@color/primary_dark"
+                android:text="@string/save"
+                android:textAppearance="@style/custom_text"
+                android:fontFamily="@font/roboto_bold"
+                android:textSize="18sp"
+                android:textColor="@color/white"
+                android:layout_marginHorizontal="14dp"
+                android:paddingEnd="8dp"
+                android:paddingStart="1dp"
+                android:drawableEnd="@drawable/roundedcorner_backicon"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/receipt" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/saveExpense"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_centerVertical="true"
-        android:layout_marginHorizontal="130dp"
-        android:layout_marginVertical="10dp"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/roundedcorner_btn"
-        android:text="save"
-        android:textColor="@color/white"
-        tools:ignore="HardcodedText"
-        android:paddingEnd="8dp"
-        android:paddingStart="1dp"
-        android:drawableEnd="@drawable/roundedcorner_backicon"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/scrollView"
-        app:layout_constraintVertical_bias="0.0" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

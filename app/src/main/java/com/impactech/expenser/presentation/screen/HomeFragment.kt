@@ -10,6 +10,7 @@ import androidx.navigation.fragment.findNavController
 import com.impactech.expenser.HomeActivity
 import com.impactech.expenser.R
 import com.impactech.expenser.databinding.ExpenseFragmentBinding
+import com.impactech.expenser.databinding.FragmentHomeBinding
 import com.impactech.expenser.domain.model.Expense
 import com.impactech.expenser.presentation.screen.adapter.ExpenseAdapter
 import com.impactech.expenser.presentation.view_models.ExpenserViewModel
@@ -17,7 +18,7 @@ import java.text.NumberFormat
 
 
 class HomeFragment : Fragment() {
-    private lateinit var binding: ExpenseFragmentBinding
+    private lateinit var binding: FragmentHomeBinding
     private val viewModel: ExpenserViewModel by activityViewModels()
     var data = mutableListOf<Expense>()
 
@@ -25,7 +26,7 @@ class HomeFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = ExpenseFragmentBinding.inflate(inflater, container, false)
+        binding = FragmentHomeBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -34,9 +35,22 @@ class HomeFragment : Fragment() {
         init()
     }
 
+    override fun onDestroyView() {
+        if(view != null) {
+            val viewGroup = view!!.parent as ViewGroup?
+            viewGroup?.removeAllViews()
+        }
+        binding.root.parent.let {
+            (it as ViewGroup).removeView(binding.root)
+        }
+        super.onDestroyView()
+    }
+
+
+
     private fun init() {
         val adapter = ExpenseAdapter(data){
-            val action = HomeFragmentDirections.actionHomeFragmentToAddExpenseFragment(it)
+            val action = HomeFragmentDirections.actionHomeFragment2ToAddExpenseFragment2()
             findNavController().navigate(action)
         }
 
@@ -57,7 +71,7 @@ class HomeFragment : Fragment() {
         }
 
         (requireActivity() as HomeActivity).add?.setOnClickListener {
-            val action = HomeFragmentDirections.actionHomeFragmentToAddExpenseFragment()
+            val action = HomeFragmentDirections.actionHomeFragment2ToAddExpenseFragment2()
             findNavController().navigate(action)
         }
     }
