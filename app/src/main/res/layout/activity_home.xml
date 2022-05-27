@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".HomeActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@color/primary_dark"
+        android:paddingHorizontal="20dp">
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:src="@drawable/football"
+            android:background="@drawable/rounded_image"
+            android:id="@+id/profile_image"/>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_gravity="end"
+            android:id="@+id/filter"
+            android:padding="5dp"
+            android:src="@drawable/ic_filter"
+            android:layout_marginEnd="20dp"/>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_gravity="end"
+            android:id="@+id/add"
+            android:padding="5dp"
+            android:src="@drawable/ic_add"
+            android:layout_marginEnd="20dp"/>
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/filter_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="20dp"
+        android:background="#ededed"
+        android:visibility="visible"
+        app:layout_constraintTop_toBottomOf="@id/toolbar">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/from"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:id="@+id/from_text"
+            android:textAppearance="@style/custom_text"
+            android:textColor="@color/primary_dark"
+            android:textSize="16sp"
+            android:fontFamily="@font/poppins_medium"/>
+
+        <EditText
+            android:id="@+id/from_date"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintWidth_percent="0.45"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/from_text"
+            android:textAppearance="@style/custom_text"
+            android:fontFamily="@font/poppins"
+            tools:text="22/05/1998"
+            android:inputType="date"
+            android:drawableEnd="@drawable/ic_calendar"
+            android:drawableTint="@color/grey"
+            android:hint="@string/from"
+            android:labelFor="@id/from_text"
+            android:autofillHints="creditCardExpirationDate"
+            android:background="@color/text_hint_color"
+            android:paddingVertical="10dp"
+            android:paddingHorizontal="10dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/from"
+            app:layout_constraintStart_toStartOf="@id/to_date"
+            app:layout_constraintTop_toTopOf="parent"
+            android:id="@+id/to_text"
+            android:textAppearance="@style/custom_text"
+            android:textColor="@color/primary_dark"
+            android:textSize="16sp"
+            android:fontFamily="@font/poppins_medium"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/hyphen"
+            app:layout_constraintEnd_toStartOf="@id/to_date"
+            app:layout_constraintStart_toEndOf="@id/from_date"
+            app:layout_constraintBottom_toBottomOf="@id/to_date"
+            app:layout_constraintTop_toTopOf="@id/to_date"
+            android:textAppearance="@style/custom_text"
+            android:textColor="@color/primary_dark"
+            android:textSize="16sp"
+            android:fontFamily="@font/poppins_medium"/>
+
+        <EditText
+            android:id="@+id/to_date"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintWidth_percent="0.45"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/from_text"
+            android:textAppearance="@style/custom_text"
+            android:fontFamily="@font/poppins"
+            tools:text="22/05/1998"
+            android:drawableEnd="@drawable/ic_calendar"
+            android:drawableTint="@color/grey"
+            android:inputType="date"
+            android:hint="@string/from"
+            android:labelFor="@id/from_text"
+            android:autofillHints="creditCardExpirationDate"
+            android:background="@color/text_hint_color"
+            android:paddingVertical="10dp"
+            android:paddingHorizontal="10dp"/>
+
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/min"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/from_date"
+            android:layout_marginTop="20dp"
+            android:id="@+id/min_text"
+            android:textAppearance="@style/custom_text"
+            android:textColor="@color/primary_dark"
+            android:textSize="16sp"
+            android:fontFamily="@font/poppins_medium"/>
+
+        <EditText
+            android:id="@+id/min_amount"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintWidth_percent="0.45"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/min_text"
+            android:textAppearance="@style/custom_text"
+            android:fontFamily="@font/poppins"
+            android:inputType="numberDecimal"
+            android:drawableStart="@drawable/ic_dollar"
+            android:drawableTint="@color/grey"
+            android:labelFor="@id/from_text"
+            android:autofillHints="creditCardExpirationDate"
+            android:background="@color/text_hint_color"
+            android:paddingVertical="10dp"
+            android:paddingHorizontal="10dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/max"
+            app:layout_constraintStart_toStartOf="@id/to_date"
+            app:layout_constraintTop_toTopOf="@id/min_text"
+            android:id="@+id/max_text"
+            android:textAppearance="@style/custom_text"
+            android:textColor="@color/primary_dark"
+            android:textSize="16sp"
+            android:fontFamily="@font/poppins_medium"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/hyphen"
+            app:layout_constraintEnd_toStartOf="@id/max_amount"
+            app:layout_constraintStart_toEndOf="@id/min_amount"
+            app:layout_constraintBottom_toBottomOf="@id/max_amount"
+            app:layout_constraintTop_toTopOf="@id/max_amount"
+            android:textAppearance="@style/custom_text"
+            android:textColor="@color/primary_dark"
+            android:textSize="16sp"
+            android:fontFamily="@font/poppins_medium"/>
+
+        <EditText
+            android:id="@+id/max_amount"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintWidth_percent="0.45"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/max_text"
+            android:textAppearance="@style/custom_text"
+            android:fontFamily="@font/poppins"
+            android:drawableTint="@color/grey"
+            android:inputType="numberDecimal"
+            android:labelFor="@id/from_text"
+            android:autofillHints="creditCardExpirationDate"
+            android:background="@color/text_hint_color"
+            android:paddingVertical="10dp"
+            android:paddingHorizontal="10dp"/>
+
+        <TextView
+            android:id="@+id/merchant_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/merchant"
+            android:layout_marginTop="20dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/max_amount"
+            android:textAppearance="@style/custom_text"
+            android:textColor="@color/primary_dark"
+            android:textSize="16sp"
+            android:fontFamily="@font/poppins_medium"/>
+
+        <AutoCompleteTextView
+            android:id="@+id/merchant"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/merchant_text"
+            android:background="@color/text_hint_color"
+            android:padding="10dp"
+            android:textAppearance="@style/custom_text"
+            android:fontFamily="@font/poppins"/>
+
+        <TextView
+            android:id="@+id/status_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/status"
+            android:layout_marginTop="20dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/merchant"
+            android:textAppearance="@style/custom_text"
+            android:textColor="@color/primary_dark"
+            android:textSize="16sp"
+            android:fontFamily="@font/poppins_medium"/>
+
+        <androidx.appcompat.widget.AppCompatCheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/new_cb"
+            app:layout_constraintTop_toBottomOf="@id/status_text"
+            android:buttonTint="@color/primary_dark"
+            android:textColor="@color/grey"
+            android:checked="true"
+            app:layout_constraintStart_toStartOf="@id/status_text"
+            android:id="@+id/new_cb"/>
+
+        <androidx.appcompat.widget.AppCompatCheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/progress"
+            app:layout_constraintTop_toBottomOf="@id/status_text"
+            android:buttonTint="@color/primary_dark"
+            android:textColor="@color/grey"
+            android:checked="true"
+            app:layout_constraintStart_toEndOf="@id/new_cb"
+            android:layout_marginStart="20dp"
+            android:id="@+id/in_progress"/>
+
+        <androidx.appcompat.widget.AppCompatCheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/reimburse"
+            app:layout_constraintTop_toBottomOf="@id/status_text"
+            android:buttonTint="@color/primary_dark"
+            android:textColor="@color/grey"
+            android:checked="true"
+            app:layout_constraintStart_toEndOf="@id/in_progress"
+            android:layout_marginStart="20dp"
+            android:id="@+id/reimburse"/>
+
+
+        <TextView
+            android:id="@+id/clear_filters"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/new_cb"
+            android:layout_marginTop="30dp"
+            android:textAppearance="@style/custom_text"
+            android:textColor="@color/primary_dark"
+            android:fontFamily="@font/poppins_medium"
+            android:textSize="18sp"
+            android:paddingVertical="10dp"
+            android:text="@string/clear_filters"/>
+
+        <TextView
+            android:id="@+id/done"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/new_cb"
+            android:layout_marginTop="30dp"
+            android:textAppearance="@style/custom_text"
+            android:textColor="@color/primary_dark"
+            android:fontFamily="@font/poppins_medium"
+            android:textSize="18sp"
+            android:padding="10dp"
+            android:background="@color/text_hint_color"
+            android:text="@string/done"/>
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:padding="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/filter_container"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

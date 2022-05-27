@@ -1,4 +1,4 @@
-package com.impactech.expenser.activities.fragment
+package com.impactech.expenser.presentation.screen
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -8,12 +8,12 @@ import android.view.ViewGroup
 import com.impactech.expenser.R
 
 
-class EmployeeProfileFragment : Fragment() {
+class CreateEmployeeFragment : Fragment() {
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-
         }
     }
 
@@ -22,7 +22,6 @@ class EmployeeProfileFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_employee_profile, container, false)
+        return inflater.inflate(R.layout.fragment_create_employee, container, false)
     }
-
 }
