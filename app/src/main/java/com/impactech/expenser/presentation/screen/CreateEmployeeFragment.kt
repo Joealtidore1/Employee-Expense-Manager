@@ -122,8 +122,8 @@ class CreateEmployeeFragment : Fragment() {
                 password = binding.employeeName.extractText()
             }
             viewModel.onEvent(AuthEvent.Register(employee))
-            toast("Added")
-            findNavController().navigateUp()
+            val action = CreateEmployeeFragmentDirections.actionCreateEmployeeFragmentToEmployeeProfileFragment2(employee)
+            findNavController().navigate(action)
         }
     }
     private fun Fragment.getRealPathFromURI(contentURI: Uri?): String? {

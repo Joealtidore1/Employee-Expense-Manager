@@ -31,5 +31,20 @@
         android:id="@+id/createEmployeeFragment"
         android:name="com.impactech.expenser.presentation.screen.CreateEmployeeFragment"
         android:label="fragment_create_employee"
-        tools:layout="@layout/fragment_create_employee" />
+        tools:layout="@layout/fragment_create_employee" >
+        <action
+            android:id="@+id/action_createEmployeeFragment_to_employeeProfileFragment2"
+            app:destination="@id/employeeProfileFragment2"
+            app:popUpTo="@id/homeFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/employeeProfileFragment2"
+        android:name="com.impactech.expenser.presentation.screen.EmployeeProfileFragment"
+        android:label="fragment_employee_profile"
+        tools:layout="@layout/fragment_employee_profile" >
+        <argument
+            android:name="employee"
+            app:argType="com.impactech.expenser.domain.model.Employee" />
+    </fragment>
 </navigation>
