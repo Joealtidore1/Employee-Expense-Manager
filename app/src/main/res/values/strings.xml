@@ -24,6 +24,7 @@
     <string name="clear_filters">Clear Filters</string>
     <string name="done">Done</string>
     <string name="login_error_message">No employee with these credentials was found</string>
+    <string name="login_message">Enter employee credentials</string>
     <string name="Total">total</string>
     <string name="comment">Comment</string>
     <string name="select_receipt">Select Receipt</string>

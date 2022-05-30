@@ -30,31 +30,56 @@ class Authentication : AppCompatActivity() {
 
     private fun init() {
         binding.login.setOnClickListener {
-            if(!binding.username.validate()){
+            if (!binding.username.validate()) {
                 bottomSheet(getString(R.string.validation_error_message, "Username"))
                 return@setOnClickListener
             }
 
-            if(!binding.password.validate()){
+            if (!binding.password.validate()) {
                 bottomSheet(getString(R.string.validation_error_message, "Password"))
                 return@setOnClickListener
             }
 
-            viewModel.onEvent(AuthEvent.Login(binding.username.extractText(), binding.password.extractText()))
-
-            viewModel.isSuccess.observe(this){
-                if(it){
-                    savePreference("loggedIn", true)
-                    savePreference("userId", userId)
+            /*if ("demo" == binding.username.text.toString()) {
+                if ("demo" == binding.password.text.toString()) {
                     startActivity(Intent(this, HomeActivity::class.java))
                     finishAffinity()
-                }else{
+                    savePreference("loggedIn", true)
+                    savePreference("userId", userId)
+                } else {
                     bottomSheet(getString(R.string.login_error_message), "Authentication Error")
+                }
+            }*/
+
+
+            viewModel.onEvent(
+                AuthEvent.Login(
+                    binding.username.extractText(),
+                    binding.password.extractText()
+                )
+            )
+            viewModel.isSuccess.observe(this) {
+                if (viewModel.isSuccess.value!!) {
+                    startActivity(Intent(this, HomeActivity::class.java))
+                    finishAffinity()
                 }
             }
 
 
         }
+    }
+
+    override fun onStart() {
+        super.onStart()
+        viewModel.isSuccess.observe(this) {
+            if (it) {
+                savePreference("loggedIn", true)
+                savePreference("userId", userId)
+            } else {
+                bottomSheet(getString(R.string.login_error_message), "Authentication Error")
+            }
+        }
+
     }
 
     override fun dispatchTouchEvent(event: MotionEvent): Boolean {

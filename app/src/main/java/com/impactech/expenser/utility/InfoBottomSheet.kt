@@ -25,7 +25,7 @@ class InfoBottomSheet(private val msg: String, private val title: String? = null
         binding.msg.text = msg
         if(title != null)
             binding.infoTitle.text = title
-        Handler(Looper.getMainLooper()).postDelayed({dismiss()}, 6000)
+       // Handler(Looper.getMainLooper()).postDelayed({dismiss()}, 6000)
         return binding.root
     }
 

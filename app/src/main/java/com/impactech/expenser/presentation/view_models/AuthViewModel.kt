@@ -22,7 +22,7 @@ class AuthViewModel @Inject constructor(
     val employee = MutableLiveData<Employee?>(null)
 
     val isSuccess = MutableLiveData<Boolean>()
-    val isFailed = MutableLiveData<String?>(null)
+    private val isFailed = MutableLiveData<String?>(null)
 
     init {
         viewModelScope.launch {
